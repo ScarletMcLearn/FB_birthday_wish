@@ -8,6 +8,14 @@ if os.name == 'nt':
 else:
     chrome_path = r"./chromedriver_linux64/chromedriver"
 
+chrome_options = webdriver.ChromeOptions()  
+prefs = {"profile.managed_default_content_settings.images": 2}
+chrome_options.add_experimental_option("prefs", prefs)
+driver = webdriver.Chrome(chrome_path,chrome_options=chrome_options)    
+
+driver.set_window_size(0,0)
+driver.set_window_position(15000,15000)
+
 print("While entering password nothing may appear on the screen, but be sure to type it right as this option is just for security. ")
 
 user = input("Enter Your Facebook Login Username, Phone Number or Email:  ")
